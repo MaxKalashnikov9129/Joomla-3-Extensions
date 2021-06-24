@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension version="3.9.15" type="plugin" group="content">
+	<name>Business Info Schema</name>
+	<author>Drezor Warlock</author>
+	<version>2.0</version>
+	<description>Плагин для вывода разметки Schema.org типа Local Business и других типов, наследуемых от этого типа</description>
+
+	<files>
+		<folder>sql</folder>
+		<filename plugin="businessinfo">businessinfo.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<config>
+		<fields name='params'>
+			<fieldset name='basic'>
+				<field name='general_values' type='radio' default='1' label='Режим работы' description='Укажите предпочитаемый режим работы модуля. "Общий" - используются значения, заданые с помощью настроек плагина: на всех страницах сайта, где отображается микроразметка, показывается одинаковая информация; "Индивидуальный" - данные для формирования списка часто задаваемых вопросов берутся из кастомных полей материалов для конкретных городов, а не настроек плагина'>
+					<option value='0'>Общий</option>
+					<option value='1'>Индивидуальный</option>
+				</field>
+
+				<field name='schema_type' type='radio' default='2' label='Тип разметки' description='Укажите предпочитаемый тип разметки для вывода. "Local Business/Medical Clinic" - выводятся оба типа разметки (данные берутся из одного источника: кастомные поля Joomla! - если выбран режим работы "Индивидуалный" или же из настроек плагина если режим работы "Общий"); "Local Business" - выводится только разметка этого типа; "Medical Clinic" - выводится только разметка этого типа;'>
+					<option value='0'>Local Business/Medical Clinic</option>
+					<option value='1'>Local Business</option>
+					<option value='2'>Medical Clinic</option>
+				</field>
+
+				<field name="bi_general_list" type="repeatable" label="Информация о работе отделений" description="Информация о работе отделений (будут выводиться одинаковые значения на всех страницах, где отображается микроразметка)" showon="general_values:0">
+					<fieldset hidden="true" name="bi_general_list_modal" repeat="true">
+						<field name="business_name" type="text" label="Название организации"></field>
+						<field name="business_address" type="text" label="Адрес организации (через запятую в формате адрес с номером дома, город, область, почтовый код)"></field>
+						<field name="business_logo" type="media" label="Логотип организации"></field>
+						<field name="business_phone" type="text" label="Контактный телефон"></field>
+						<field name="business_email" type="text" label="Адрес электронной почты"></field>
+						<field name="business_site" type="text" label="Сайт в интернете"></field>
+						<field name="business_bdays" type="text" label="Рабочие дни (через запятую)"></field>
+						<field name="business_bdays_short" type="text" label="Рабочие дни (сокращенные названия через запятую)"></field>
+						<field name="business_hours" type="text" label="Рабочее время (через дефис в 24-часовом формате)"></field>
+						<field name="business_payments_type" type="text" label="Способы оплаты"></field>
+						<field name="business_price_range" type="text" label="Ценовой диапазон"></field>
+						<field name="business_medical_specialty" type="text" label="Специализация"></field>
+					</fieldset>
+				</field>
+
+				<field 
+					name='custom_field_name' 
+					label='Имя поля' 
+					description='Укажите название кастомного поля с которым необходимо соотнести данный плагин: должен содержать значение идентичное полю "Имя" функционала "Материалы->Поля"'
+					type='text'
+					showon="general_values:1"
+					default="business-info"
+					>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

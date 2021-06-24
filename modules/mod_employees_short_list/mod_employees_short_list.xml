@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension version="3.9.16" type="module" method="upgrade" client="site">
+	<name>Короткий список сотрудников</name>
+	<author>Drezor Warlock</author>
+	<version>1.0</version>
+	<description>Модуль для вывода списка сотрудников с минимумом информации на основе базы данных</description>
+	
+	<files>
+		<folder>tmpl</folder>
+		<folder>helper</folder>
+		<folder>language</folder>
+		<filename>index.html</filename>
+		<filename>script.php</filename>
+		<filename module="mod_employees_short_list">mod_employees_short_list.php</filename>
+	</files>
+	
+	<scriptfile>script.php</scriptfile>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">		
+				<field 
+					name="show_more_button" 
+					label="Ссылка для кнопки перехода на список сотрудников" 
+					description="Укажите ID пункта меню по которому находится страница для вывода полного списка сотрудников" 
+					type="number">
+				</field>
+				<field 
+					name="employee_page_id" 
+					type="number" 
+					label="ID пункта меню на материал выступающий страницей сотрудника" 
+					description="Укажите ID пункта меню на страницу с детальной информацией по конкретному сотруднику. (только если не используется компонент 'Контакты')">
+				</field>
+				<field 
+					name="display_limit" 
+					type="number" 
+					label="Количество сотрудников для показа" 
+					description="Укажите сколько карточек сотрудников необходимо выводить в модуле">
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field 
+					name="layout" 
+					type="modulelayout" 
+					label="JFIELD_ALT_LAYOUT_LABEL" 
+					client_id='0' 
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC">
+				</field>
+				<field
+					name="moduleclass_sfx" 
+					type="textarea" 
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" 
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" 
+					rows="3">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

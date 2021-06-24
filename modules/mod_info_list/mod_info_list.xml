@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension version="3.9.15" type="module" client="site" method="upgrade">
+	<name>Информационный список</name>
+	<author>Drezor Warlock</author>
+	<version>1.0</version>
+	<description>Модуль для вывода списка информации, которая может заинтересовать пользователя, например: список преимуществ, объяснение схемы работы и т.д.</description>
+
+	<files>
+		<filename>mod_info_list.xml</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/index.html</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>helper/helper.php</filename>
+		<filename module="mod_info_list">mod_info_list.php</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="list_elements" type="repeatable" label="Настройка элементов списка" description="Поля, которые необходимо заполнить для вывода на сайте">
+					<fieldset hidden="true" name="list_elements_modal">
+						<field name="icon" label="Изображение" description="Укажите изображение, которое будет выводиться в карточке объекта (возможно использовать обычный текст вместо пути к изображению)" type="text"></field>
+						<field name="header" label="Текст заголовка элемента списка" description="Укажите текст, который выводиться как заголовок" type="text"></field>
+						<field name="text" label="Текст элемента списка" description="Укажите какой текст, должен выводиться для элемента списка" type="text"></field>
+					</fieldset>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension version="3.9.15" type="module" method="upgrade" client="site">
+	<name>Поиск по коду</name>
+	<author>Drezor Warlock</author>
+	<version>1.1</version>
+	<description>Модуль для поиска объектов недвижимости на основе кода объектов в базе данных</description>
+
+	<files>
+		<filename>mod_search_by_code.xml</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename module="mod_search_by_code">mod_search_by_code.php</filename>
+		<folder>language</folder>
+		<folder>assets</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<scriptfile>script.php</scriptfile>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+	 				name="page_id"
+	 				type="number"
+	 				label="ID пункта меню страницы карточки объекта"
+	 				description="Укажите ID пункта меню, который выступает страницей для показа детальной информации по объекту">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

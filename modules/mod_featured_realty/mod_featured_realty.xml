@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension version="3.9.15" type="module" client="site" method="upgrade">
+	<name>Избранная недвижимость</name>
+	<author>Drezor Warlock</author>
+	<version>1.1</version>
+	<description>Модуль для вывода объектов, которые отмечены, как "избранные"</description>
+	<files>
+		<filename>mod_featured_realty.xml</filename>
+		<filename>index.html</filename>
+		<filename module="mod_featured_realty">mod_featured_realty.php</filename>
+		<folder>language</folder>
+		<folder>helper</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<scriptfile>script.php</scriptfile>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="show_address" type="radio" label="Показывать адрес" description="Выберите, хотите ли Вы показывать адрес в карточке объектов, которые выводятся с помощью данного модуля" default="1">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="show_date_add" type="radio" label="Показывать дату добавления" description="Выберите, хотите ли Вы показывать дату добавления в карточке объектов, которые выводятся с помощью данного модуля" default="0">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field name="items_to_show" type="number" label="Количество показываемых карточек" description="Укажите сколько карточек должно показываться на странице"></field>
+
+				<field name="rooms_number_icon" type="media" label="Иконка количества комнат" description="Выберите иконку, которую необходимо отображать для информации о количество комнат при выводе объектов с помощью данного модуля."></field>
+
+				<field name="interior_area_icon" type="media" label="Иконка площади квартиры" description="Выберите иконку, которую необходимо отображать для информации о площади при выводе объектов с помощью данного модуля."></field>
+
+				<field name="base_images_folder" type="text" label="Базовый путь к каталогу с изображениями объектов" description="Укажите базовый (неизменяемую часть) путь к каталогу с изображением объектов"></field>
+
+				<field name="default_image" type="text" label="Изображение по-умолчанию" description="Укажите изображение, которое будет использоваться по-умолчанию, если для объекта нет изображений"></field>
+
+				<field 
+					name="realty_item_link_id" 
+					label="ID пункта меню для одиночной страницы объекта" 
+					description="Укажите ID пункта меню для одиночной страницы объекта для выбраного языка" 
+					type="number">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

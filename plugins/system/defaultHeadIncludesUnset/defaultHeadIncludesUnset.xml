@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<extension version="3.9.15" type="plugin" group="system">
+	<name>Отключение ресурсов модуля head</name>
+	<author>Drezor Warlock</author>
+	<version>1.0</version>
+	<description>Плагин для отключения дефолтных подключений библиотек-скриптов в head-модуле</description>
+	<files>
+		<filename plugin="defaultHeadIncludesUnset">defaultHeadIncludesUnset.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field type="text" name="unset_values" description="Ресурсы, которые необходимо отключить при компиляции head модуля" label="Отключаемые ресурсы" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
